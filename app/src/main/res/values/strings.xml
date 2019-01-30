@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Architecture Base</string>
+    <string name="action_save">Save</string>
+    <string name="add_item">Add item</string>
+    <string name="name">Name</string>
+    <string name="birthday">Birthday</string>
+</resources>
