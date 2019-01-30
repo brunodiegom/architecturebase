@@ -4,10 +4,13 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="item"
+            type="com.brunodiegom.architecturebase.model.Item" />
 
         <variable
-                name="viewModel"
-                type="com.brunodiegom.architecturebase.viewmodel.AddItemViewModel"/>
+            name="viewModel"
+            type="com.brunodiegom.architecturebase.viewmodel.AddItemViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +25,7 @@
                 android:id="@+id/input_name"
                 android:hint="@string/name"
                 android:layout_width="0dp"
-                android:text="@={viewModel.data.name}"
+                android:text="@={item.name}"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +36,7 @@
                 android:id="@+id/input_birthday"
                 android:hint="@string/birthday"
                 android:layout_width="0dp"
-                android:text="@={viewModel.data.birthday}"
+                android:text="@={item.birthday}"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

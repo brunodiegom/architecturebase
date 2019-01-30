@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.brunodiegom.architecturebase.R
 import com.brunodiegom.architecturebase.databinding.ActivityAddItemBinding
+import com.brunodiegom.architecturebase.model.Item
 import com.brunodiegom.architecturebase.viewmodel.AddItemViewModel
 import kotlinx.android.synthetic.main.toolbar.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -14,6 +15,8 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class AddItemActivity : AppCompatActivity() {
 
     private val viewModel: AddItemViewModel by viewModel()
+
+    private val item = Item()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +32,7 @@ class AddItemActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_save -> {
-                viewModel.save()
+                viewModel.save(this.item)
                 finish()
             }
         }
@@ -39,6 +42,7 @@ class AddItemActivity : AppCompatActivity() {
     private fun bindViewModel() {
         val binding: ActivityAddItemBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_item)
         binding.viewModel = viewModel
+        binding.item = item
         binding.executePendingBindings()
     }
 }
