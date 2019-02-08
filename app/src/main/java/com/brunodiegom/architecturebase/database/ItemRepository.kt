@@ -1,14 +1,11 @@
 package com.brunodiegom.architecturebase.database
 
-import android.content.Context
 import android.os.AsyncTask
 import androidx.lifecycle.LiveData
-import com.brunodiegom.architecturebase.InitApplication
 import com.brunodiegom.architecturebase.model.Item
 import com.brunodiegom.architecturebase.model.ItemDao
 
-class ItemRepository(context: Context) {
-    private val itemDao = InitApplication.database.itemDao()
+class ItemRepository(private val itemDao: ItemDao) {
 
     val list: LiveData<List<Item>> = itemDao.getAll()
 
